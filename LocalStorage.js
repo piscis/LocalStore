@@ -1,4 +1,4 @@
-﻿var LocalStorage = (function () {
+﻿var LocalStorage = function () {
 	/// <summary>
 	/// Interact with localStorage
 	/// </summary>
@@ -94,4 +94,4 @@
 		save: save
 	};
 
-})();
+};
