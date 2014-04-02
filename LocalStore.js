@@ -1,4 +1,4 @@
-﻿var LocalStorage = function () {
+﻿var LocalStore = function () {
 	/// <summary>
 	/// Interact with localStorage
 	/// </summary>
