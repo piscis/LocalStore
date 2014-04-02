@@ -14,7 +14,7 @@ To get started simply instanciate the library.
 Once instanciated, there are four methods that can be used:
 
 ###save
-```save``` takes two parameters a ```key``` parameter is the lookup key that will be used to retrieve the data. Be careful, if a key already exists this method will override it.
+```save``` takes two parameters the ```key``` parameter is the lookup key that will be used to retrieve the data. Be careful, if a key already exists this method will override it. The ```value``` parameter is the data to be stored. This can be a JavaScript object or a string value.
 
 ```
 ls.save('jsonObject', {name: 'value'});
