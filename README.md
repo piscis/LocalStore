@@ -3,7 +3,7 @@ LocalStore
 
 LocalStore is a small javascript library designed to make working with HTML5 Local Storage a breeze. By default, HTML5's Local Storage API only allows you to store string values. This application will serialize JavaScript objects to a string upon storage and deserialize it upon retireval. It does not however break Local Storage's native ability to store string objects.
 
-It is designed to be lightweight and simple and mirror the default behavior of the HTML5 Local Storage API.
+It is designed to be lightweight and simple and mirror the default behavior of the HTML5 Local Storage API. It uses a simple key/value model to store and retrieve data.
 
 Usage
 -----
