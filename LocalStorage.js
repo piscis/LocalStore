@@ -30,7 +30,7 @@
 		/// <param name="key">The key to lookup.</param>
 		/// <param name="isString">If the value is a string. (Default is false).</param>
 		/// <returns>The value stored in local storage.  As JSON if it is not a string.</returns>
-		if (localStorage && key) { // make sure we have what we need to try to load
+		if (key) { // make sure we have what we need to try to load
 
 			// the value stored in local storage
 			var value = localStorage[key];
@@ -44,7 +44,7 @@
 			}
 
 		}
-		return null;  // guess something went wrong
+		return null; // guess something went wrong
 	}
 
 	function save(key, value, isString) {
@@ -54,7 +54,7 @@
 		/// <param name="key">The key to store the value with.</param>
 		/// <param name="value">The object to store.</param>
 		/// <param name="isString">If the object is a string. (Default is false).</param>
-		if (localStorage && value && key) {
+		if (value && key) {
 
 			if (isString !== null && isString) {
 				localStorage[key] = value;
@@ -62,6 +62,29 @@
 				localStorage[key] = window.JSON.stringify(value);
 			}
 
+		}
+	}
+
+	// Feature tests
+	var hasStorage = (function () {
+		try {
+			localStorage.setItem('storage', 'storage');
+			localStorage.removeItem('storage');
+			return true;
+		} catch (e) {
+			return false;
+		}
+	}());
+	var hasJson = (typeof window.JSON === 'object' && typeof JSON.parse === 'function');
+
+	// throw errors if we are missing features
+	if (!(hasStorage && hasJson)) {
+		if (!(hasStorage || hasJson)) {
+			throw 'Your browser does not seem to support JSON parsing or local storage.';
+		} else if (!hasStorage) {
+			throw 'Your browser does not seem to support local storage.';
+		} else {
+			throw 'Your browser does not seem to support JSON parsing.';
 		}
 	}
 
