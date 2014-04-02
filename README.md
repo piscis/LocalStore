@@ -11,7 +11,7 @@ To get started simply instanciate the library.
 
 ```var ls = new LocalStore();```
 
-Once instanciated, there are three methods that can be used:
+Once instanciated, there are four methods that can be used:
 
 ###save
 ```save``` takes two parameters a ```key``` parameter is the lookup key that will be used to retrieve the data. Be careful, if a key already exists this method will override it.
@@ -41,4 +41,12 @@ ls.clear();
 ```
 ls.clear('jsonObject');
 ls.clear('str');
+```
+
+
+###hasKey
+```hasKey``` can be used to check if a key exists in local storage without actually loading and deserializing the value.
+
+```
+var exists = ls.hasKey('jsonObject');
 ```
