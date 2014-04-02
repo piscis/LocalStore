@@ -1,4 +1,6 @@
-﻿var LocalStore = function () {
+﻿'use strict';
+
+var LocalStore = function () {
 	/// <summary>
 	/// Interact with localStorage
 	/// </summary>
