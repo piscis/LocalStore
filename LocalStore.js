@@ -22,7 +22,18 @@ var LocalStore = function () {
 		} else {
 			localStorage.clear();
 		}
-
+	}
+	
+	function hasKey(key) {
+		/// <summary>
+		/// See if local storage has a specific key.
+		/// </summary>
+		/// <param name="key">The key to lookup.</param>
+		/// <returns>true if the key exists in local storage, false if not.</returns>
+		if (!key) {
+			return false;
+		}
+		return key in localStorage;
 	}
 
 	function load(key) {
@@ -43,8 +54,6 @@ var LocalStore = function () {
 		} else {
 			throw 'you must provide a key';
 		}
-
-
 	}
 
 	function save(key, value) {
@@ -66,7 +75,6 @@ var LocalStore = function () {
 
 	// Feature detection
 	(function () {
-
 		var hasStorage = (function () {
 			try {
 				localStorage.setItem('storage', 'storage');
@@ -88,7 +96,6 @@ var LocalStore = function () {
 				throw 'Your browser does not seem to support JSON parsing.';
 			}
 		}
-
 	})();
 
 	return {
@@ -110,6 +117,12 @@ var LocalStore = function () {
 		/// <param name="key">The key to lookup.</param>
 		/// <returns>The value stored in local storage.  As JSON if it is not a string.</returns>
 		load: load,
+		/// <summary>
+		/// See if local storage has a specific key.
+		/// </summary>
+		/// <param name="key">The key to lookup.</param>
+		/// <returns>true if the key exists in local storage, false if not.</returns>
+		hasKey: hasKey,
 		/// <summary>
 		/// Save an object to localStorage
 		/// </summary>
