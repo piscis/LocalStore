@@ -28,7 +28,7 @@
 		/// Load an object from local storage.
 		/// </summary>
 		/// <param name="key">The key to lookup.</param>
-		/// <param name="isString">If the value is a string.</param>
+		/// <param name="isString">If the value is a string. (Default is false).</param>
 		/// <returns>The value stored in local storage.  As JSON if it is not a string.</returns>
 		if (localStorage && key) { // make sure we have what we need to try to load
 
@@ -53,7 +53,7 @@
 		/// </summary>
 		/// <param name="key">The key to store the value with.</param>
 		/// <param name="value">The object to store.</param>
-		/// <param name="isString">If the object is a string.</param>
+		/// <param name="isString">If the object is a string. (Default is false).</param>
 		if (localStorage && value && key) {
 
 			if (isString !== null && isString) {
