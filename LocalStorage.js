@@ -23,70 +23,71 @@
 
 	}
 
-	function load(key, isString) {
+	function load(key) {
 		/// <summary>
 		/// Load an object from local storage.
 		/// </summary>
 		/// <param name="key">The key to lookup.</param>
-		/// <param name="isString">If the value is a string. (Default is false).</param>
 		/// <returns>The value stored in local storage.  As JSON if it is not a string.</returns>
-		if (key) { // make sure we have what we need to try to load
-
+		if (key) { // make sure we have been given a key to load
 			// the value stored in local storage
 			var value = localStorage[key];
 
-			if (isString !== null && isString) { // is this value a string?
+			try {
+				return window.JSON.parse(value);
+			} catch (ex) {
 				return value;
-			} else { // if not try to serialize it
-				if (value && value.length > 0) {
-					return window.JSON.parse(value);
-				}
 			}
-
+		} else {
+			throw 'you must provide a key';
 		}
-		return null; // guess something went wrong
+
+
 	}
 
-	function save(key, value, isString) {
+	function save(key, value) {
 		/// <summary>
 		/// Save an object to localStorage
 		/// </summary>
 		/// <param name="key">The key to store the value with.</param>
-		/// <param name="value">The object to store.</param>
-		/// <param name="isString">If the object is a string. (Default is false).</param>
-		if (value && key) {
-
-			if (isString !== null && isString) {
-				localStorage[key] = value;
-			} else {
+		/// <param name="value">The object or string to store.</param>
+		if (key && value) {
+			try {
 				localStorage[key] = window.JSON.stringify(value);
+			} catch (ex) {
+				localStorage[key] = value;
 			}
-
-		}
-	}
-
-	// Feature tests
-	var hasStorage = (function () {
-		try {
-			localStorage.setItem('storage', 'storage');
-			localStorage.removeItem('storage');
-			return true;
-		} catch (e) {
-			return false;
-		}
-	}());
-	var hasJson = (typeof window.JSON === 'object' && typeof JSON.parse === 'function');
-
-	// throw errors if we are missing features
-	if (!(hasStorage && hasJson)) {
-		if (!(hasStorage || hasJson)) {
-			throw 'Your browser does not seem to support JSON parsing or local storage.';
-		} else if (!hasStorage) {
-			throw 'Your browser does not seem to support local storage.';
 		} else {
-			throw 'Your browser does not seem to support JSON parsing.';
+			throw 'you must provide both a key and a value';
 		}
 	}
+
+	// Feature detection
+	(function () {
+
+		var hasStorage = (function () {
+			try {
+				localStorage.setItem('storage', 'storage');
+				localStorage.removeItem('storage');
+				return true;
+			} catch (e) {
+				return false;
+			}
+		}());
+		var hasJson = (typeof window.JSON === 'object' && typeof JSON.parse === 'function');
+
+		// throw errors if we are missing features
+		if (!(hasStorage && hasJson)) {
+			if (!(hasStorage || hasJson)) {
+				throw 'Your browser does not seem to support JSON parsing or local storage.';
+			} else if (!hasStorage) {
+				throw 'Your browser does not seem to support local storage.';
+			} else {
+				throw 'Your browser does not seem to support JSON parsing.';
+			}
+		}
+
+	})();
 
 	return {
 		/// <signature>
@@ -105,15 +106,13 @@
 		/// Load an object from local storage.
 		/// </summary>
 		/// <param name="key">The key to lookup.</param>
-		/// <param name="isString">If the value is a string.</param>
 		/// <returns>The value stored in local storage.  As JSON if it is not a string.</returns>
 		load: load,
 		/// <summary>
 		/// Save an object to localStorage
 		/// </summary>
 		/// <param name="key">The key to store the value with.</param>
-		/// <param name="value">The object to store.</param>
-		/// <param name="isString">If the object is a string.</param>
+		/// <param name="value">The object or string to store.</param>
 		save: save
 	};
 
