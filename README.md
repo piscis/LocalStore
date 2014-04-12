@@ -9,14 +9,16 @@ Usage
 -----
 To get started simply instanciate the library.
 
-```var ls = new LocalStore();```
+```javascript
+var ls = new LocalStore();
+```
 
 Once instanciated, there are four methods that can be used:
 
 ###save
 ```save``` takes two parameters the ```key``` parameter is the lookup key that will be used to retrieve the data. Be careful, if a key already exists this method will override it. The ```value``` parameter is the data to be stored. This can be a JavaScript object or a string value.
 
-```
+```javascript
 ls.save('jsonObject', {name: 'value'});
 ls.save('str', 'a string');
 ```
@@ -24,7 +26,7 @@ ls.save('str', 'a string');
 ###load
 ```load``` takes only one parameter, ```key```. This should be the same key that was used with the ```save``` method to save the data.
 
-```
+```javascript
 var jsonObject = ls.load('jsonObject');
 var str = ls.load('str');
 ```
@@ -32,13 +34,13 @@ var str = ls.load('str');
 ###clear
 ```clear``` can be used in two different ways. If not provided with a parameter, clear will clear *everything* in Local Storage.
 
-```
+```javascript
 ls.clear();
 ```
 
 ```clear``` can also take a ```key``` parameter. If provided with a key, ```clear``` will only clear the value for the provided key leaving the rest of local storage intact.
 
-```
+```javascript
 ls.clear('jsonObject');
 ls.clear('str');
 ```
@@ -47,6 +49,6 @@ ls.clear('str');
 ###hasKey
 ```hasKey``` can be used to check if a key exists in local storage without actually loading and deserializing the value.
 
-```
+```javascript
 var exists = ls.hasKey('jsonObject');
 ```
