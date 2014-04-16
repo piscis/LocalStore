@@ -12,7 +12,7 @@ var LocalStore = (function () {
             } catch (e) {
                 return false;
             }
-        }());
+        })();
         var hasJson = (typeof window.JSON === 'object' && typeof JSON.parse === 'function');
 
         // throw errors if we are missing features

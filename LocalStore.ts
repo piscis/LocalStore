@@ -8,7 +8,7 @@ class LocalStore {
   /// </summary>
 
   constructor() {
-    var hasStorage : boolean = (function () {
+    var hasStorage : boolean = (() => {
       try {
         localStorage.setItem('storage', 'storage');
         localStorage.removeItem('storage');
@@ -16,7 +16,7 @@ class LocalStore {
       } catch (e) {
         return false;
       }
-    }());
+    })();
     var hasJson : boolean = (typeof window.JSON === 'object' && typeof JSON.parse === 'function');
 
     // throw errors if we are missing features
