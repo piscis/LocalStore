@@ -48,7 +48,7 @@ class LocalStore {
     }
   }
 
-  hasKey(key : string) {
+  hasKey(key : string) : boolean {
   	/// <summary>
   	/// See if local storage has a specific key.
   	/// </summary>
@@ -60,7 +60,7 @@ class LocalStore {
   	return key in localStorage;
   }
 
-  load(key : string) {
+  load(key : string) : any {
   	/// <summary>
   	/// Load an object from local storage.
   	/// </summary>

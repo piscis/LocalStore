@@ -95,3 +95,4 @@ var LocalStore = (function () {
     };
     return LocalStore;
 })();
+//# sourceMappingURL=LocalStore.js.map
