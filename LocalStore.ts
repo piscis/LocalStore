@@ -1,5 +1,7 @@
 ﻿'use strict';
 
+interface Window { JSON : any; }
+
 class LocalStore {
   /// <summary>
   /// Interact with localStorage
