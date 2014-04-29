@@ -45,10 +45,17 @@ ls.clear('jsonObject');
 ls.clear('str');
 ```
 
-
 ###hasKey
 ```hasKey``` can be used to check if a key exists in local storage without actually loading and deserializing the value.
 
 ```javascript
 var exists = ls.hasKey('jsonObject');
 ```
+
+
+Building The Source
+-------------------
+
+If you would like to build the source yourself you will need [node.js](http://nodejs.org/) and [Node Package Manager](https://www.npmjs.org/) (npm).
+
+From the project's root directory, run ```npm install``` to install the project's build dependencies. Then simply run ```grunt``` to build compile the TypeScript and watch for changes.
