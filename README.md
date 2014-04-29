@@ -7,13 +7,13 @@ It is designed to be lightweight and simple and mirror the default behavior of t
 
 Usage
 -----
-To get started simply instanciate the library.
+To get started simply instantiate the library.
 
 ```javascript
 var ls = new LocalStore();
 ```
 
-Once instanciated, there are four methods that can be used:
+Once instantiated, there are four methods that can be used:
 
 ###save
 ```save``` takes two parameters the ```key``` parameter is the lookup key that will be used to retrieve the data. Be careful, if a key already exists this method will override it. The ```value``` parameter is the data to be stored. This can be a JavaScript object or a string value.
