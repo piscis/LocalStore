@@ -94,25 +94,25 @@ describe('core functionality', function() {
             it('must throw an error if not passed a key or a value', function() {
                 expect(function() {
                     ls.save();
-                }).toThrow();
+                }).toThrow('you must provide both a key and a value.');
             });
 
             it('must throw if not passed a key', function() {
                 expect(function() {
                     ls.save(null, 'value');
-                }).toThrow();
+                }).toThrow('you must provide both a key and a value.');
             });
 
             it('must throw an error if passed an empty key', function() {
                 expect(function() {
                     ls.save('', 'value');
-                });
+                }).toThrow('you must provide both a key and a value.');
             });
 
             it('must throw if not passed a value', function() {
                 expect(function() {
                     ls.save('key');
-                }).toThrow();
+                }).toThrow('you must provide both a key and a value.');
             });
 
         });
@@ -122,7 +122,7 @@ describe('core functionality', function() {
             it('must throw an error if not passed a key', function() {
                 expect(function() {
                     ls.load();
-                }).toThrow();
+                }).toThrow('you must provide a key.');
             });
 
         });

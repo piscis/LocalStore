@@ -47,7 +47,7 @@ var LocalStore = (function () {
 				return value;
 			}
 		} else {
-			throw 'you must provide a key';
+			throw 'you must provide a key.';
 		}
 	};
 
@@ -59,7 +59,7 @@ var LocalStore = (function () {
 				localStorage[key] = value;
 			}
 		} else {
-			throw 'you must provide both a key and a value';
+			throw 'you must provide both a key and a value.';
 		}
 	};
 	return LocalStore;

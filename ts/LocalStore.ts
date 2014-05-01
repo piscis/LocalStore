@@ -78,7 +78,7 @@ class LocalStore {
   			return value;
   		}
   	} else {
-  		throw 'you must provide a key';
+  		throw 'you must provide a key.';
   	}
   }
 
@@ -95,7 +95,7 @@ class LocalStore {
   			localStorage[key] = value;
   		}
   	} else {
-  		throw 'you must provide both a key and a value';
+  		throw 'you must provide both a key and a value.';
   	}
   }
 
