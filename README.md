@@ -53,9 +53,13 @@ var exists = ls.hasKey('jsonObject');
 ```
 
 
-Building The Source
+Running the Project
 -------------------
 
-If you would like to build the source yourself you will need [node.js](http://nodejs.org/) and [Node Package Manager](https://www.npmjs.org/) (npm).
+If you would like to run the project yourself you will need [node.js](http://nodejs.org/) and [Node Package Manager](https://www.npmjs.org/) (npm).
 
-From the project's root directory, run ```npm install``` to install the project's build dependencies. Then simply run ```grunt``` to build compile the TypeScript and watch for changes.
+From the project's root directory, run ```npm install``` to install the project's build dependencies. Then simply run ```grunt``` to compile the TypeScript, run all tests, and watch for changes.
+
+If you would just like to compile the TypeScript and run the tests without watching for changes then run ```grunt run```.
+
+If you would like to run the tests without doing anything else then run ```grunt jasmine```.
