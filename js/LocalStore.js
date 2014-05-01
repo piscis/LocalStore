@@ -31,7 +31,7 @@ var LocalStore = (function () {
 	};
 
 	LocalStore.prototype.hasKey = function (key) {
-		if (!key) {
+		if (!key && key !== '') {
 			return false;
 		}
 		return key in localStorage;
@@ -52,7 +52,7 @@ var LocalStore = (function () {
 	};
 
 	LocalStore.prototype.save = function (key, value) {
-		if (key && value) {
+		if (key && (value || value == '')) {
 			try  {
 				localStorage[key] = window.JSON.stringify(value);
 			} catch (ex) {

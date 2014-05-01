@@ -56,7 +56,7 @@ class LocalStore {
   	/// </summary>
   	/// <param name="key">The key to lookup.</param>
   	/// <returns>true if the key exists in local storage, false if not.</returns>
-  	if (!key) {
+  	if (!key && key!=='') {
   		return false;
   	}
   	return key in localStorage;
@@ -88,7 +88,7 @@ class LocalStore {
   	/// </summary>
   	/// <param name="key">The key to store the value with.</param>
   	/// <param name="value">The object or string to store.</param>
-  	if (key && value) {
+  	if (key && (value || value == '')) {
   		try {
   			localStorage[key] = window.JSON.stringify(value);
   		} catch (ex) {
