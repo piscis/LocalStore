@@ -67,6 +67,11 @@ describe('core functionality', function() {
             expect(loadedObject.property).toBe(objectToSave.property);
         });
 
+        it('must save and retrieve empty string', function() {
+            ls.save('key', '');
+            expect(ls.load('key')).toBe('');
+        });
+
         it('must allow overriding saved values with the same key', function() {
             var value1 = 'value1',
                 value2 = 'value2';
