@@ -17,6 +17,14 @@ module.exports = function(grunt) {
                 }
             }
         },
+        jasmine: {
+            pivotal: {
+                src: 'js/LocalStore.js',
+                options: {
+                    specs: 'tests/*.js'
+                }
+            }
+        },
         uglify: {
             build: {
                 src: 'js/LocalStore.js',
@@ -39,6 +47,7 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-typescript');
+    grunt.loadNpmTasks('grunt-contrib-jasmine');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
 

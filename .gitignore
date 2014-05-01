@@ -27,4 +27,6 @@ Desktop.ini
 $RECYCLE.BIN/
 
 node_modules
-node_modules/
+.grunt
+
+_SpecRunner.html
