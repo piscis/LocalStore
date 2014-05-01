@@ -10,7 +10,7 @@ var LocalStore = (function () {
 				return false;
 			}
 		})();
-		var hasJson = (typeof window.JSON === 'object' && typeof JSON.parse === 'function');
+		var hasJson = (typeof window.JSON === 'object' && typeof JSON.parse === 'function' && typeof JSON.stringify === 'function');
 
 		if (!(hasStorage && hasJson)) {
 			if (!(hasStorage || hasJson)) {
@@ -31,8 +31,8 @@ var LocalStore = (function () {
 	};
 
 	LocalStore.prototype.hasKey = function (key) {
-		if (!key && key !== '') {
-			return false;
+		if (!key || key === '') {
+			throw 'you must provide a key';
 		}
 		return key in localStorage;
 	};

@@ -56,8 +56,8 @@ class LocalStore {
   	/// </summary>
   	/// <param name="key">The key to lookup.</param>
   	/// <returns>true if the key exists in local storage, false if not.</returns>
-  	if (!key && key!=='') {
-  		return false;
+  	if (!key || key==='') {
+  		throw 'you must provide a key';
   	}
   	return key in localStorage;
   }

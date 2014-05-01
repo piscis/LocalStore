@@ -43,6 +43,18 @@ describe('core functionality', function() {
             expect(ls.hasKey('emptyKey')).toBe(true);
         });
 
+        it('must throw an error if not passed a key', function() {
+            expect(function() {
+                ls.hasKey();
+            }).toThrow();
+        });
+
+        it('must throw an error if passed an empty key', function() {
+            expect(function() {
+                ls.hasKey('');
+            }).toThrow();
+        });
+
     });
 
 
@@ -68,13 +80,51 @@ describe('core functionality', function() {
             expect(ls.load('key')).toBe('');
         });
 
-        it('must allow overriding saved values with the same key', function() {
-            var value1 = 'value1',
-                value2 = 'value2';
-            ls.save('key', value1);
-            expect(ls.load('key')).toBe(value1);
-            ls.save('key', value2);
-            expect(ls.load('key')).toBe(value2);
+        describe('save method', function() {
+
+            it('must allow overriding saved values with the same key', function() {
+                var value1 = 'value1',
+                    value2 = 'value2';
+                ls.save('key', value1);
+                expect(ls.load('key')).toBe(value1);
+                ls.save('key', value2);
+                expect(ls.load('key')).toBe(value2);
+            });
+
+            it('must throw an error if not passed a key or a value', function() {
+                expect(function() {
+                    ls.save();
+                }).toThrow();
+            });
+
+            it('must throw if not passed a key', function() {
+                expect(function() {
+                    ls.save(null, 'value');
+                }).toThrow();
+            });
+
+            it('must throw an error if passed an empty key', function() {
+                expect(function() {
+                    ls.save('', 'value');
+                });
+            });
+
+            it('must throw if not passed a value', function() {
+                expect(function() {
+                    ls.save('key');
+                }).toThrow();
+            });
+
+        });
+
+        describe('load method', function() {
+
+            it('must throw an error if not passed a key', function() {
+                expect(function() {
+                    ls.load();
+                }).toThrow();
+            });
+
         });
 
     });
