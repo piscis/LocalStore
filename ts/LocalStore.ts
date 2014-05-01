@@ -17,7 +17,7 @@ class LocalStore {
         return false;
       }
     })();
-    var hasJson : boolean = (typeof window.JSON === 'object' && typeof JSON.parse === 'function');
+    var hasJson : boolean = (typeof window.JSON === 'object' && typeof JSON.parse === 'function' && typeof JSON.stringify === 'function');
 
     // throw errors if we are missing features
     if (!(hasStorage && hasJson)) {
