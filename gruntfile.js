@@ -37,7 +37,7 @@ module.exports = function(grunt) {
         watch: {
             scripts: {
                 files: ['ts/*.ts'],
-                tasks: ['typescript', 'uglify'],
+                tasks: ['run'],
                 options: {
                     spawn: false
                 }
@@ -51,6 +51,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['typescript', 'uglify', 'watch']);
+    grunt.registerTask('run', ['typescript', 'jasmine', 'uglify']);
+    grunt.registerTask('default', ['run', 'watch']);
 
 };
