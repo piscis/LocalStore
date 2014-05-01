@@ -1,10 +1,6 @@
 describe('core functionality', function() {
 
-    var ls;
-
-    beforeEach(function() {
-        ls = new LocalStore();
-    });
+    var ls = new LocalStore();
 
     afterEach(function() {
         ls.clear();
