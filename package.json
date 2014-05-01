@@ -1,6 +1,6 @@
 {
   "name": "LocalStore",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "LocalStore is a small javascript library designed to make working with HTML5 Local Storage a breeze.",
   "main": "gruntfile.js",
   "author": "Ryan Blackman",
