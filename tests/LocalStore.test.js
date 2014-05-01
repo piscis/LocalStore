@@ -84,3 +84,36 @@ describe('core functionality', function() {
     });
 
 });
+
+describe('feature detection', function() {
+
+    describe('detect local storage', function() {
+
+        it('must throw if localStorage.setItem throws', function() {
+            spyOn(localStorage, 'setItem').and.throwError('nope');
+            expect(function() {
+                var ls = new LocalStore();
+            }).toThrow();
+        });
+
+        it('must throw if localStorage.setItem throws', function() {
+            spyOn(localStorage, 'removeItem').and.throwError('nope');
+            expect(function() {
+                var ls = new LocalStore();
+            }).toThrow();
+        });
+
+    });
+
+    describe('detect JSON', function() {
+
+        it('must throw if JSON is not an object', function() {
+            spyOn(window, 'JSON').and.returnValue('not an object');
+            expect(function() {
+                var ls = new LocalStore();
+            }).toThrow();
+        });
+
+    });
+
+});
