@@ -13,7 +13,7 @@ describe('core functionality', function() {
             ls.save('key2', 'def');
         });
 
-        it('must clear a single key, but keep other keys', function() {
+        it('must clear a single key, but keep other keys when passed a parameter', function() {
             expect(ls.hasKey('key1')).toBe(true);
             expect(ls.hasKey('key2')).toBe(true);
             ls.clear('key1');
