@@ -139,14 +139,14 @@ describe('feature detection', function() {
             spyOn(localStorage, 'setItem').and.throwError('nope');
             expect(function() {
                 var ls = new LocalStore();
-            }).toThrow();
+            }).toThrow('Your browser does not seem to support local storage.');
         });
 
         it('must throw if localStorage.setItem throws', function() {
             spyOn(localStorage, 'removeItem').and.throwError('nope');
             expect(function() {
                 var ls = new LocalStore();
-            }).toThrow();
+            }).toThrow('Your browser does not seem to support local storage.');
         });
 
     });
@@ -157,7 +157,7 @@ describe('feature detection', function() {
             spyOn(window, 'JSON').and.returnValue('not an object');
             expect(function() {
                 var ls = new LocalStore();
-            }).toThrow();
+            }).toThrow('Your browser does not seem to support JSON parsing.');
         });
 
     });
