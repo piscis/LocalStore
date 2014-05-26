@@ -10,6 +10,7 @@ var LocalStore = (function () {
 				return false;
 			}
 		})();
+
 		var hasJson = (typeof window.JSON === 'object' && typeof JSON.parse === 'function' && typeof JSON.stringify === 'function');
 
 		if (!(hasStorage && hasJson)) {
