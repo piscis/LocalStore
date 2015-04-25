@@ -1,11 +1,11 @@
-﻿'use strict';
-
 interface Window { JSON: any; }
 
 class LocalStore {
     /// <summary>
     /// Interact with localStorage. Depends on browser support for localStorage and window.JSON.
     /// </summary>
+
+    'use strict';
 
     constructor() {
 
